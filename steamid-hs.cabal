@@ -1,61 +1,63 @@
-cabal-version:       2.2
-
-name:                steamid-hs
-version:             0.1.0.0
-synopsis:            A Haskell library for working with SteamIDs.
-description:         Parse and convert between all known steamid formats: steam, steam3, steam64.
-homepage:            https://github.com/leighmacdonald/steamid-hs#readme
-license:             MIT
-license-file:        LICENSE
-author:              Leigh MacDonald
-maintainer:          leigh.macdonald@gmail.com
-copyright:           2025 Leigh MacDonald
-category:            Web
-build-type:          Simple
-extra-source-files:  README.md
-extra-doc-files:     CHANGELOG.md
+cabal-version: 3.8
+name: steamid-hs
+version: 0.1.0.0
+synopsis: A Haskell library for working with SteamIDs.
+description: Parse and convert between all known steamid formats: steam, steam3, steam64.
+homepage: https://github.com/leighmacdonald/steamid-hs#readme
+license: MIT
+license-file: LICENSE
+author: Leigh MacDonald
+maintainer: leigh.macdonald@gmail.com
+copyright: 2025 Leigh MacDonald
+category: Web
+build-type: Simple
+extra-source-files: README.md
+extra-doc-files: CHANGELOG.md
 
 library
-  hs-source-dirs:      src
-  exposed-modules:     SteamID
+  hs-source-dirs: src
+  exposed-modules: SteamID
   build-depends:
-    base >= 4.7 && < 5,
-    hspec >= 2.10.0 && < 2.12
-  default-language:    Haskell2010
-  ghc-options:         -Wall
-                       -Wcompat
-                       -Widentities
-                       -Wincomplete-record-updates
-                       -Wincomplete-uni-patterns
-                       -Wmissing-export-lists
-                       -Wmissing-home-modules
-                       -Wpartial-fields
-                       -Wredundant-constraints
+    base >=4.7 && <5
+
+  default-language: Haskell2010
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Widentities
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wmissing-export-lists
+    -Wmissing-home-modules
+    -Wpartial-fields
+    -Wredundant-constraints
 
 test-suite steamid-hs-test
-  type:                exitcode-stdio-1.0
-  hs-source-dirs:      test
-  main-is:             Spec.hs
-  other-modules:       SteamIDSpec
-  build-tool-depends: hspec-discover:hspec-discover == 2.*
-  build-depends: base
-                , steamid-hs
-                , hspec >= 2.10.0 && < 2.12
-  default-language:    Haskell2010
-  ghc-options: -Wall
-               -Wcompat
-               -Widentities
-               -Wincomplete-record-updates
-               -Wincomplete-uni-patterns
-               -Wmissing-export-lists
-               -Wmissing-home-modules
-               -Wpartial-fields
-               -Wredundant-constraints
-               -threaded
-               -rtsopts
-               -with-rtsopts=-N
+  type: exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is: Spec.hs
+  other-modules: SteamIDSpec
+  build-tool-depends: hspec-discover:hspec-discover >=2 && <3
+  build-depends:
+    base,
+    hspec >=2 && <3,
+    steamid-hs,
 
+  default-language: Haskell2010
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Widentities
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wmissing-export-lists
+    -Wmissing-home-modules
+    -Wpartial-fields
+    -Wredundant-constraints
+    -threaded
+    -rtsopts
+    -with-rtsopts=-N
 
 source-repository head
-  type:     git
+  type: git
   location: https://github.com/leighmacdonald/steamid-hs
